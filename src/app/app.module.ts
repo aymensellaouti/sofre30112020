@@ -8,6 +8,7 @@ import { FirstComponent } from './components/first/first.component';
 import { SecondComponent } from './components/second/second.component';
 import { ColorComponent } from './components/color/color.component';
 import { TwoComponent } from './components/two/two.component';
+import { CardComponent } from './pages/card/card.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { TwoComponent } from './components/two/two.component';
     FirstComponent,
     SecondComponent,
     ColorComponent,
-    TwoComponent
+    TwoComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
