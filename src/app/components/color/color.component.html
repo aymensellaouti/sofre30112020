@@ -1,0 +1,16 @@
+<p>color works!</p>
+
+<input
+  (change)="changeColor(inputColor.value)"
+  #inputColor
+type="text" class="form-control">
+<div [style.backgroundColor]="color">
+  Bonjour
+</div>
+
+<button
+  (click)="reset()"
+  class="btn btn-dark">
+  Reset
+</button>
+

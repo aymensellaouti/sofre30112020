@@ -1,0 +1,17 @@
+<p [hidden]="isDisabled">first works!</p>
+
+<span [style.color]="color"
+(click)="enableDisable()">
+  {{ name }}
+</span>
+
+<input type="text" #monInput />
+<button
+  (click)="showMessage(monInput)"
+  [disabled]="isDisabled"
+  class="btn btn-danger"
+>
+  click me
+</button>
+
+cc {{ messageToShow }}
