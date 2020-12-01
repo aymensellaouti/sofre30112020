@@ -12,7 +12,6 @@ import { CardComponent } from './pages/card/card.component';
 import { PereComponent } from './components/pere/pere.component';
 import { FilsComponent } from './components/fils/fils.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

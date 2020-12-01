@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-fils',
@@ -6,20 +6,33 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./fils.component.css'],
 })
 export class FilsComponent implements OnInit {
-  @Input() value = 'x';
-  @Input() name = 'x';
+  @Input() value;
+  @Input() name;
   firstname;
+  @Input() defaultColor;
+  color;
+  @Output() sendDataToDad = new EventEmitter();
+  @Output() sendMyFavoriteColor = new EventEmitter();
+  favoriteColor = 'red';
+  /*
+    En tant que fils je dois créer un event
+    Ensuite je dois préciser quand emmetre l'event
+    Mettre la data à envoyer à mon Père
+  */
   constructor() {}
 
-  ngOnInit(): void {}
-  /*
-
-  f(value, name) {console.log(value)}
-
-  g() {
-    f(1);
-    f(2);
+  ngOnInit(): void {
+    this.color = this.defaultColor;
   }
 
-*/
+  sendData() {
+    this.sendDataToDad.emit('Bonjour Papa');
+  }
+
+  sendFavoriteColor() {
+    this.sendMyFavoriteColor.emit({
+      color : this.favoriteColor,
+      name : 'Mohamed'
+    });
+  }
 }

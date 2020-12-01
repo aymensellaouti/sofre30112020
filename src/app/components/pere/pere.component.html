@@ -1,5 +1,15 @@
-<p>pere works!</p>
-<app-fils [value]="'cc'" [name]="'aymen'"></app-fils>
-<app-fils [value]="'hello'"></app-fils>
+<p>pere works {{ pereVar }}</p>
+<app-fils
+  (sendMyFavoriteColor)="changeColor($event)"
+  (sendDataToDad)="processSonEvent($event)"
+  [value]="pereVar"
+  [name]="'aymen'"
+>
+</app-fils>
+<app-fils
+  (sendDataToDad)="processSonEvent($event)"
+  [value]="'hello'"
+  [defaultColor]="'pink'"
+></app-fils>
 
-
+<div [style.backgroundColor]="color">Div du pere</div>
