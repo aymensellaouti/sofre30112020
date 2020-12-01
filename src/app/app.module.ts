@@ -17,6 +17,13 @@ import { ItemComponent } from './cv/item/item.component';
 import { DetailComponent } from './cv/detail/detail.component';
 import { NgstyleTestComponent } from './directives/ngstyle-test/ngstyle-test.component';
 import { WordComponent } from './directives/word/word.component';
+import { HighlightDirective } from './directives/highlight.directive';
+import { NotNumberDirective } from './directives/not-number.directive';
+import { RainbowDirective } from './directives/rainbow.directive';
+import { TestNgifComponent } from './components/test-ngif/test-ngif.component';
+import { FirstPipePipe } from './pipes/first-pipe.pipe';
+import { DefaultImagePipe } from './pipes/default-image.pipe';
+import { TodoComponent } from './todo/todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -33,14 +40,17 @@ import { WordComponent } from './directives/word/word.component';
     ItemComponent,
     DetailComponent,
     NgstyleTestComponent,
-    WordComponent
+    WordComponent,
+    HighlightDirective,
+    NotNumberDirective,
+    RainbowDirective,
+    TestNgifComponent,
+    FirstPipePipe,
+    DefaultImagePipe,
+    TodoComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

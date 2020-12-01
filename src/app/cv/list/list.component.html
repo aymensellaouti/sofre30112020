@@ -1,14 +1,15 @@
 <ol class="list-group">
-  <li class="list-group-item">
+  <li
+    *ngFor="let actualPersonne of personnes; let isEven = even"
+    class="list-group-item"
+    [ngClass]="{
+      'list-group-item-danger': isEven,
+      'list-group-item-warning': !isEven
+    }"
+  >
     <app-item
       (sendSelectedPersonne)="forwardPersonne($event)"
-      [personne]="personnes[0]"
-    ></app-item>
-  </li>
-  <li class="list-group-item">
-    <app-item
-      (sendSelectedPersonne)="forwardPersonne($event)"
-      [personne]="personnes[1]"
+      [personne]="actualPersonne"
     ></app-item>
   </li>
 </ol>

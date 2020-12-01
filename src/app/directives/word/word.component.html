@@ -1,4 +1,6 @@
 <p
+  appHighlight
+  [in]="'gold'"
   [ngStyle]="{
     color: color,
     fontFamily: font,
@@ -7,7 +9,7 @@
 >
   word works!
 </p>
-
+<input type="text" appRainbow />
 <div class="row">
   <div class="col">
     <input type="color" class="form-control" [(ngModel)]="color" />

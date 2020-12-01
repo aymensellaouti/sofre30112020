@@ -27,10 +27,11 @@ export class ListComponent implements OnInit {
         'sellaouti2',
         'aymen2',
         'teacher2',
-        'rotating_card_profile3.png',
+        '                ',
         789456,
         38
       ),
+      new Personne(3, 'sellaouti2 ', 'aymen2', 'teacher2', '', 789456, 38),
     ];
   }
   forwardPersonne(personne: Personne) {
