@@ -12,7 +12,9 @@ export class PereComponent implements OnInit {
     this.pereVar = 'pereVar';
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
   processSonEvent(message) {
     alert(message);
   }

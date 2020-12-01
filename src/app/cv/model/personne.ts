@@ -9,7 +9,6 @@ export class Personne {
     public cin: number = 0,
     public age: number = 0,
   ){
-
     this.id = id;
     this.name = name;
     this.firstname = firstname;
