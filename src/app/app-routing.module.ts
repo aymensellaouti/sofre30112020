@@ -8,6 +8,7 @@ import { NF404Component } from './components/nf404/nf404.component';
 import { AddPersonneComponent } from './cv/add-personne/add-personne.component';
 import { CvComponent } from './cv/cv/cv.component';
 import { PersonneDetailsComponent } from './cv/personne-details/personne-details.component';
+import { LoginComponent } from './pages/login/login.component';
 import { TodoComponent } from './todo/todo/todo.component';
 
 // cv/detail
@@ -32,6 +33,7 @@ const routes: Routes = [
     children: [{ path: 'first', component: FirstComponent }],
   },
   { path: 'todo', component: TodoComponent },
+  { path: 'login', component: LoginComponent },
   { path: '**', component: NF404Component },
 ];
 

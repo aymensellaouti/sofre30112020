@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Personne } from '../model/personne';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CvService {
   personnes: Personne[] = [];
@@ -31,5 +31,23 @@ export class CvService {
   }
   getPersonnes(): Personne[] {
     return this.personnes;
+  }
+
+  deletePersonne(personne: Personne) {
+    const index = this.personnes.indexOf(personne);
+    if (index == -1) {
+      return 0;
+    } else {
+      this.personnes.splice(index, 1);
+      return 1;
+    }
+  }
+
+  getPersonneById(id: number): Personne {
+    return this.personnes.find((personne) => personne.id === +id);
+  }
+
+  addPersonne(personne: Personne) {
+    this.personnes.push(personne);
   }
 }

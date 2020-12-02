@@ -1,0 +1,43 @@
+<form #loginForm="ngForm">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input
+      #emailInput="ngModel"
+      name="email"
+      ngModel
+      required
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      placeholder="Enter email"
+      email
+    />
+    <div
+      *ngIf="emailInput.invalid && emailInput.touched"
+      class="alert alert-danger"
+    >
+      LL'email est obligatoire et doit etre valide
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input
+      ngModel
+      #pwdInput="ngModel"
+      required
+      name="password"
+      type="password"
+      minlength="4"
+      class="form-control"
+      id="exampleInputPassword1"
+      placeholder="Password"
+    />
+  </div>
+  <div *ngIf="pwdInput.invalid && pwdInput.touched" class="alert alert-danger">
+    La taille du password est de 4 carctères au moins et il est obligatoire
+  </div>
+  <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">
+    Submit
+  </button>
+</form>
