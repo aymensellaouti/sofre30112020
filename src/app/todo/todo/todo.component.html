@@ -1,8 +1,22 @@
 <div class="row">
   <div class="col">
-    <input type="text" class="form-control" />
+    <ol class="list-group">
+      <li *ngFor="let todo of todos" class="list-group-item">
+        {{ todo.name }} : {{ todo.content }}
+        <i
+          (click)="deleteTodo(todo)"
+          class="fa fa-trash fa-3x" aria-hidden="true"></i>
+      </li>
+    </ol>
   </div>
   <div class="col">
-    <input type="text" class="form-control" />
+    <label for="name">Name</label>
+    <input type="text" class="form-control mt-2" id="name" [(ngModel)]="todo.name" />
+    <label for="content">Content</label>
+    <input type="text" class="form-control mt-2" id="content"  [(ngModel)]="todo.content" />
+    <button
+      [disabled]="!todo.name.trim().length || !todo.content.trim().length"
+      (click)="addTodo()" class="btn btn-primary mt-2">Add Todo</button>
   </div>
 </div>
+
