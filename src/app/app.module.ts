@@ -37,6 +37,7 @@ import { TestFormComponent } from './components/test-form/test-form.component';
 import { LoginComponent } from './pages/login/login.component';
 import { TestObservableComponent } from './components/test-observable/test-observable.component';
 import { TestHttpComponent } from './components/test-http/test-http.component';
+import { AuthHttpInterceptor } from './interceptors/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,7 @@ import { TestHttpComponent } from './components/test-http/test-http.component';
     TestHttpComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [],
+  providers: [AuthHttpInterceptor],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

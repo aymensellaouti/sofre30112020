@@ -11,7 +11,11 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
   errorMessage = '';
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.authService.isAuthenticated()) {
+      this.router.navigate(['cv']);
+    }
+  }
 
   login(formulaire: NgForm) {
     this.authService.login(formulaire.value).subscribe(

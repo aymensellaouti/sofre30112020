@@ -65,9 +65,10 @@ export class CvService {
   }
 
   addPersonne(personne: Personne): Observable<Personne> {
+    /*
     const token = localStorage.getItem('token');
-    const headers = new HttpHeaders().set('Authorization', token);
-    return this.http.post<Personne>(PERSONNE_API, personne, { headers });
+    const headers = new HttpHeaders().set('Authorization', token); */
+    return this.http.post<Personne>(PERSONNE_API, personne);
   }
 
   selectPersonne(personne: Personne) {
@@ -75,8 +76,8 @@ export class CvService {
   }
 
   deletePersonne(id: number): Observable<any> {
-    const token = localStorage.getItem('token');
-    const headers = new HttpHeaders().set('Authorization', token);
-    return this.http.delete<Personne>(PERSONNE_API + id, { headers });
+    /* const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', token); */
+    return this.http.delete<Personne>(PERSONNE_API + id);
   }
 }
