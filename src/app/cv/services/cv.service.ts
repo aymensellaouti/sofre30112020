@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Personne } from '../model/personne';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CvService {
+  selectedPersonne = new Subject<Personne>();
   personnes: Personne[] = [];
   constructor() {
     this.personnes = [
@@ -49,5 +51,9 @@ export class CvService {
 
   addPersonne(personne: Personne) {
     this.personnes.push(personne);
+  }
+
+  selectPersonne(personne: Personne) {
+    this.selectedPersonne.next(personne);
   }
 }

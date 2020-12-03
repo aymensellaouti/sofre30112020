@@ -17,7 +17,12 @@ export class DetailComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cvService.selectedPersonne.subscribe(
+      /* console.log() */
+      (personne) => (this.personne = personne)
+    );
+  }
   embaucher() {
     if (!this.embaucheService.embaucher(this.personne)) {
       alert(`

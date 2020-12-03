@@ -7,14 +7,14 @@ import { Personne } from '../model/personne';
   styleUrls: ['./cv.component.css'],
 })
 export class CvComponent implements OnInit {
-  selectedPersonne: Personne;
+  /*   selectedPersonne: Personne; */
   constructor() {}
 
   ngOnInit(): void {
     /* this.loggerService.logger('Cc je suis cvComponent'); */
   }
 
-  getSelectedPersonne(personne: Personne) {
+  /*   getSelectedPersonne(personne: Personne) {
     this.selectedPersonne = personne;
-  }
+  } */
 }

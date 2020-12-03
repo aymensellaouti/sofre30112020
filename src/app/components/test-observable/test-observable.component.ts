@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit, Pipe } from '@angular/core';
+import { Observable, pipe } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-test-observable',
@@ -20,7 +21,7 @@ export class TestObservableComponent implements OnInit {
   ];
   valeur;
   ngOnInit(): void {
-    this.observable = new Observable((observer) => {
+    this.observable = new Observable<number>((observer) => {
       let i = 5;
       setInterval(() => {
         if (!i) {
@@ -39,9 +40,14 @@ export class TestObservableComponent implements OnInit {
       }, 1000);
     });
 
-    this.observable.subscribe((val) => {
-      console.log(val);
-    });
+    this.observable
+      .pipe(
+        map((value) => value * 3),
+        filter((value) => value % 2 == 0)
+      )
+      .subscribe((val) => {
+        console.log(val);
+      });
     this.observable.subscribe(
       (data) => console.log('Issam data', data),
       (error) => console.log(error),

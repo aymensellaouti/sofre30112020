@@ -1,8 +1,13 @@
 <app-header></app-header>
+
+<div *ngIf="nbClick" class="alert alert-success">
+  Le nombre de personne sélectionnée est : {{ nbClick }}
+</div>
 <!-- <app-router-simulator></app-router-simulator> -->
 <!-- <app-test-form></app-test-form> -->
 <hr />
-<app-test-observable></app-test-observable>
+<app-test-http></app-test-http>
+<!-- <app-test-observable></app-test-observable> -->
 <router-outlet></router-outlet>
 <hr />
 Footer
