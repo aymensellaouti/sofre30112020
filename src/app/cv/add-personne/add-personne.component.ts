@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -13,7 +14,11 @@ export class AddPersonneComponent implements OnInit {
   errorMessage = '';
   ngOnInit(): void {}
   addPersonne(formumaire: NgForm) {
-    this.cvService.addPersonne(formumaire.value);
-    this.router.navigate(['cv']);
+    this.cvService.addPersonne(formumaire.value).subscribe(
+      (personne) => {
+        this.router.navigate(['cv', personne.id]);
+      },
+      (erreur) => (this.errorMessage = 'veuillez vérifier le serveur')
+    );
   }
 }

@@ -8,6 +8,7 @@ import { NF404Component } from './components/nf404/nf404.component';
 import { AddPersonneComponent } from './cv/add-personne/add-personne.component';
 import { CvComponent } from './cv/cv/cv.component';
 import { PersonneDetailsComponent } from './cv/personne-details/personne-details.component';
+import { LoginGuard } from './guards/login.guard';
 import { LoginComponent } from './pages/login/login.component';
 import { TodoComponent } from './todo/todo/todo.component';
 
@@ -18,7 +19,11 @@ const routes: Routes = [
     path: 'cv',
     children: [
       { path: '', component: CvComponent },
-      { path: 'add', component: AddPersonneComponent },
+      {
+        path: 'add',
+        component: AddPersonneComponent,
+        canActivate: [LoginGuard],
+      },
       { path: ':id', component: PersonneDetailsComponent },
     ],
   },

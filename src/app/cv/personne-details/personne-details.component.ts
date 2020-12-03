@@ -18,17 +18,25 @@ export class PersonneDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
-      const personne = this.cvService.getPersonneById(params.id);
-      if (!personne) {
-        this.router.navigate(['cv']);
-      } else {
-        this.personne = personne;
-      }
+      this.cvService.getPersonneById(params.id).subscribe(
+        (personne) => (this.personne = personne),
+        (error) => {
+          const fakePersonne = this.cvService.getFakePersonneById(params.id);
+          if (!fakePersonne) {
+            this.router.navigate(['cv']);
+          } else {
+            alert('Problème accès serveur Fake Data');
+            this.personne = fakePersonne;
+          }
+        }
+      );
     });
   }
 
   deletePersonne() {
-    this.cvService.deletePersonne(this.personne);
-    this.router.navigate(['cv']);
+    this.cvService.deletePersonne(this.personne.id).subscribe(
+      (success) => this.router.navigate(['cv']),
+      (erreur) => alert('Pbm de suppression')
+    );
   }
 }
