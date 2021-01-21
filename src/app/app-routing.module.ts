@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { BackComponent } from './components/back/back.component';
 import { ColorComponent } from './components/color/color.component';
 import { FirstComponent } from './components/first/first.component';
@@ -14,19 +14,7 @@ import { TodoComponent } from './todo/todo/todo.component';
 
 // cv/detail
 const routes: Routes = [
-  { path: '', redirectTo: 'cv', pathMatch: 'full' },
-  {
-    path: 'cv',
-    children: [
-      { path: '', component: CvComponent },
-      {
-        path: 'add',
-        component: AddPersonneComponent,
-        canActivate: [LoginGuard],
-      },
-      { path: ':id', component: PersonneDetailsComponent },
-    ],
-  },
+  { path: '', redirectTo: 'color/red', pathMatch: 'full' },
   {
     path: '',
     component: FrontComponent,
@@ -37,13 +25,21 @@ const routes: Routes = [
     component: BackComponent,
     children: [{ path: 'first', component: FirstComponent }],
   },
+  {
+    path: 'cv',
+    loadChildren: () => import('./cv/cv.module').then((m) => m.CvModule),
+  },
   { path: 'todo', component: TodoComponent },
   { path: 'login', component: LoginComponent },
   { path: '**', component: NF404Component },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
